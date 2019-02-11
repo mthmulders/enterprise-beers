@@ -13,10 +13,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run:
-          name: Login to Azure Container Registry
-          command: |
-            docker login enterprisebeers.azurecr.io -u $AZ_SP_ID -p $AZ_SP_PASSWORD
       - restore_cache:
           key: enterprise-beers-{{ .Branch }}-{{ checksum "pom.xml" }}
 #      - run:
@@ -45,6 +41,18 @@ jobs:
           when: always
       - store_test_results:
           path: ~/junit
+      - run:
+        name: Prepare connection to Azure Container Registry
+        command: |
+          cat << EOF > $HOME/.m2/settings.xml
+          <servers>
+             <server>
+                <id>enterprisebeers.azurecr.io</id>
+                <username>$AZ_SP_ID</username>
+                <password>$AZ_SP_PASSWORD</password>
+             </server>
+          </servers>
+          EOF
       - run:
           name: Push containers
           command: |
