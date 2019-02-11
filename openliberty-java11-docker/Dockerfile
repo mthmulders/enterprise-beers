@@ -31,6 +31,8 @@ RUN /opt/ol/wlp/bin/server create \
     && echo "<server description=\"Default Server\"><httpEndpoint id=\"defaultHttpEndpoint\" host=\"*\" /></server>" > /config/configDropins/defaults/open-default-port.xml \
     && /opt/ol/wlp/bin/server start && /opt/ol/wlp/bin/server stop && rm -rf /output/resources/security/ /logs/*
 
+RUN chmod +x /opt/ol/docker/docker-server
+
 EXPOSE 9080 9443
 
 ENTRYPOINT ["/opt/ol/docker/docker-server"]
