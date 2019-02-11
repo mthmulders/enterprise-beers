@@ -4,10 +4,10 @@ workflows:
   version: 2
   build:
     jobs:
-      - backend
+      - build
 
 jobs:
-  backend:
+  build:
     docker:
       - image: circleci/openjdk:11-jdk-sid
     steps:
@@ -42,4 +42,4 @@ jobs:
           path: ~/junit
       - run:
           name: Push containers
-          command: mvn clean deploy -Pdocker,circleci
+          command: mvn clean package -Pdocker,circleci -Ddockerfile.tag=1.0.${CIRCLE_BUILD_NUM}
