@@ -14,9 +14,9 @@ jobs:
       - checkout
       - restore_cache:
           key: enterprise-beers-{{ .Branch }}-{{ checksum "pom.xml" }}
-      - run:
-          name: Prepare build
-          command: mvn dependency:go-offline -DexcludeGroupIds=com.infosupport.enterprise-beers
+#      - run:
+#          name: Prepare build
+#          command: mvn dependency:go-offline -DexcludeGroupIds=com.infosupport.enterprise-beers
       - save_cache:
           paths:
             - ~/.m2
