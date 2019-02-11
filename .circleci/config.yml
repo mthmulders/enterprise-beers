@@ -12,6 +12,11 @@ jobs:
       - image: circleci/openjdk:11-jdk-sid
     steps:
       - checkout
+      - setup_remote_docker
+      - run:
+          name: Login to Azure Container Registry
+          command: |
+            docker login enterprisebeers.azurecr.io -u $AZ_SP_ID -p $AZ_SP_PASSWORD
       - restore_cache:
           key: enterprise-beers-{{ .Branch }}-{{ checksum "pom.xml" }}
 #      - run:
