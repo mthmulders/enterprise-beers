@@ -45,13 +45,17 @@ jobs:
           name: Prepare connection to Azure Container Registry
           command: |
             cat << EOF > $HOME/.m2/settings.xml
-            <servers>
-               <server>
-                  <id>enterprisebeers.azurecr.io</id>
-                  <username>$AZ_SP_ID</username>
-                  <password>$AZ_SP_PASSWORD</password>
-               </server>
-            </servers>
+            <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+              <servers>
+                 <server>
+                    <id>enterprisebeers.azurecr.io</id>
+                    <username>$AZ_SP_ID</username>
+                    <password>$AZ_SP_PASSWORD</password>
+                 </server>
+              </servers>
+            </settings>
             EOF
       - run:
           name: Push containers
