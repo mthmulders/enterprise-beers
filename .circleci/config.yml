@@ -47,4 +47,9 @@ jobs:
           path: ~/junit
       - run:
           name: Push containers
-          command: mvn clean package -Pdocker,circleci -Ddockerfile.tag=1.0.${CIRCLE_BUILD_NUM}
+          command: |
+            mvn clean package \
+              -Pdocker,circleci \
+              -Ddockerfile.tag=1.0.${CIRCLE_BUILD_NUM} \
+              -Ddockerfile.username=${AZ_SP_ID} \
+              -Ddockerfile.password=${AZ_SP_PASSWORD}
