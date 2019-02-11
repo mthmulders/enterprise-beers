@@ -43,7 +43,7 @@ jobs:
           path: ~/junit
       - run:
           name: Login to Azure Container Registry
-          command: az acr login -n enterprisebeers -u $AZ_SP_ID -p $AZ_SP_PASSWORD
+          command: docker login enterprisebeers.azurecr.io -u $AZ_SP_ID -p $AZ_SP_PASSWORD
       - run:
           name: Push OpenLiberty container
           command: |
