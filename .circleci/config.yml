@@ -27,7 +27,7 @@ jobs:
           command: |
             mvn \
               clean org.jacoco:jacoco-maven-plugin:prepare-agent verify sonar:sonar \
-              -Dsonar.projectKey=mthmulders_futbolin \
+              -Dsonar.projectKey=mthmulders_enterprise-beers \
               -Dsonar.organization=mthmulders-github \
               -Dsonar.host.url=https://sonarcloud.io \
               -Dsonar.login=$SONAR_LOGIN
@@ -40,3 +40,6 @@ jobs:
           when: always
       - store_test_results:
           path: ~/junit
+      - run:
+          name: Push containers
+          command: mvn clean deploy -Pdocker,circleci

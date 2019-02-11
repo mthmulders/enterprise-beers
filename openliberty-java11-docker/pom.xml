@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.infosupport.enterprise-beers</groupId>
+        <artifactId>enterprise-beers</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>openliberty-java11-docker</artifactId>
+    <packaging>pom</packaging>
+
+    <properties>
+        <dockerfile.tag>javaee8-19.0.0.1</dockerfile.tag>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>docker</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.spotify</groupId>
+                        <artifactId>dockerfile-maven-plugin</artifactId>
+                        <configuration>
+                            <repository>enterprisebeers.azurecr.io/openliberty-java11</repository>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
