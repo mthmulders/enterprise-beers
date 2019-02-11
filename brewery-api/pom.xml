@@ -54,7 +54,7 @@
                         <artifactId>dockerfile-maven-plugin</artifactId>
                         <configuration>
                             <buildArgs>
-                                <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                                <WAR_FILE>${project.build.finalName}.war</WAR_FILE>
                             </buildArgs>
                             <repository>enterprisebeers.azurecr.io/brewery-api</repository>
                         </configuration>
