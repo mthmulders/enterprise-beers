@@ -17,6 +17,7 @@
 
         <module>common</module>
         <module>brewery-api</module>
+        <module>frontend</module>
     </modules>
 
     <build>
