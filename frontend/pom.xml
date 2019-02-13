@@ -18,10 +18,7 @@
                         <groupId>com.spotify</groupId>
                         <artifactId>dockerfile-maven-plugin</artifactId>
                         <configuration>
-                            <buildArgs>
-                                <WAR_FILE>${project.build.finalName}.war</WAR_FILE>
-                            </buildArgs>
-                            <repository>enterprisebeers.azurecr.io/brewery-api</repository>
+                            <repository>enterprisebeers.azurecr.io/frontend</repository>
                         </configuration>
                     </plugin>
                 </plugins>
