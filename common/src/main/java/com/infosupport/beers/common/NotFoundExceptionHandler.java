@@ -1,7 +1,5 @@
 package com.infosupport.beers.common;
 
-import lombok.Getter;
-
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
@@ -17,12 +15,7 @@ import static javax.ws.rs.core.Response.Status.NOT_FOUND;
  */
 @Provider
 public class NotFoundExceptionHandler implements ExceptionMapper<NotFoundException> {
-    @Getter
-    public static class Message {
-        private String message = "The requested entity does not exist";
-    }
-
-    private static final Message message = new Message();
+    private static final ErrorMessage message = new ErrorMessage("The requested entity does not exist");
 
     @Context
     private HttpHeaders headers;
