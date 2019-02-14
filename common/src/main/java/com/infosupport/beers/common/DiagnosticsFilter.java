@@ -17,7 +17,6 @@ public class DiagnosticsFilter implements ContainerResponseFilter {
         response.getHeaders().putSingle("X-Java-Runtime", informationService.getJavaRuntime());
         response.getHeaders().putSingle("X-Operating-System", informationService.getOperatingSystem());
 
-        informationService.getContainerName().ifPresent(val -> response.getHeaders().putSingle("X-Container-Name", val));
         informationService.getHostName().ifPresent(val -> response.getHeaders().putSingle("X-Host-Name", val));
     }
 }
