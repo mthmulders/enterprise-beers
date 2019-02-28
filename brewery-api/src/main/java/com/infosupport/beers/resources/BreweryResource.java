@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.UUID;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.Path;
@@ -12,14 +13,14 @@ import javax.ws.rs.Produces;
 
 import com.infosupport.beers.model.Brewery;
 import com.infosupport.beers.services.BreweryService;
-import lombok.AllArgsConstructor;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
-@AllArgsConstructor(onConstructor = @__(@Inject))
 @Path("/brewery")
+@Singleton
 public class BreweryResource {
-    private final BreweryService service;
+    @Inject
+    BreweryService service;
 
     @GET
     @Produces(APPLICATION_JSON)

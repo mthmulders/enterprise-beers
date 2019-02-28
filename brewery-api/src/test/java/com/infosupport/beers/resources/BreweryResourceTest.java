@@ -2,7 +2,7 @@ package com.infosupport.beers.resources;
 
 import com.infosupport.beers.model.Brewery;
 import com.infosupport.beers.services.BreweryService;
-import lombok.NonNull;
+import org.junit.Before;
 import org.junit.Test;
 
 import javax.ws.rs.NotFoundException;
@@ -28,7 +28,12 @@ public class BreweryResourceTest {
 
     private BreweryService service = mock(BreweryService.class);
 
-    private final BreweryResource sut = new BreweryResource(service);
+    private final BreweryResource sut = new BreweryResource();
+
+    @Before
+    public void setup() {
+        sut.service = service;
+    }
 
     @Test
     public void getBreweries_shouldReturnBreweries() {
