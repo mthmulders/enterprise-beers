@@ -30,7 +30,7 @@ RUN /opt/ol/wlp/bin/server create \
     && mkdir /config/configDropins/defaults
 
 # Add Open Liberty configuration
-ADD enable-liberty-features.xml /opt/ol/wlp/usr/servers/defaultServer/
+ADD server.xml /opt/ol/wlp/usr/servers/defaultServer/
 
 # Run the server the first time so it is setup correctly
 RUN /opt/ol/wlp/bin/server start \
