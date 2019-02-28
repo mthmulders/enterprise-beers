@@ -1,9 +1,15 @@
 package com.infosupport.beers.model;
 
-import lombok.NonNull;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 import javax.ejb.Stateless;
-import java.util.*;
+
+import lombok.NonNull;
 
 @Stateless
 public class InMemoryBreweryRepository implements BreweryRepository {
@@ -24,7 +30,7 @@ public class InMemoryBreweryRepository implements BreweryRepository {
     }
 
     @Override
-    public Optional<Brewery> findBrewery(@NonNull UUID id) {
+    public Optional<Brewery> findBrewery(@NonNull final UUID id) {
         return BREWERIES.stream()
                 .filter(brewery -> id.equals(brewery.getId()))
                 .findFirst();
