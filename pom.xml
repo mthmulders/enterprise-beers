@@ -16,6 +16,7 @@
         <module>openliberty-java11-docker</module>
 
         <module>common</module>
+        <module>beer-api</module>
         <module>brewery-api</module>
         <module>frontend</module>
     </modules>
