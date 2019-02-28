@@ -15,21 +15,21 @@ import java.util.UUID;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
-@Path("/beer")
+@Path("/")
 @Singleton
 public class BeerResource {
     @Inject
     BeerService service;
 
     @GET
-    @Path("/{breweryId}")
+    @Path("/brewery/{breweryId}/beers")
     @Produces(APPLICATION_JSON)
     public Collection<Beer> getBeerByBrewery(@PathParam("breweryId") final UUID id) {
         return service.findBeersByBrewery(id);
     }
 
     @GET
-    @Path("/{id}")
+    @Path("/beer/{id}")
     @Produces(APPLICATION_JSON)
     public Beer getBeerById(@PathParam("id") final UUID id) {
         return service.findBeer(id).orElseThrow(NotFoundException::new);
