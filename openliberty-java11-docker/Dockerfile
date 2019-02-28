@@ -22,14 +22,20 @@ RUN mkdir /logs \
     && ln -s /opt/ol/wlp/usr/servers/defaultServer /config \
     && ln -s /logs $WLP_OUTPUT_DIR/defaultServer/logs
 
-# Configure WebSphere Liberty
+# Configure Open Liberty
 RUN /opt/ol/wlp/bin/server create \
     && rm /config/server.env \
     && rm -rf $WLP_OUTPUT_DIR/.classCache /output/workarea \
     && mkdir /config/configDropins \
-    && mkdir /config/configDropins/defaults \
-    && echo "<server description=\"Default Server\"><httpEndpoint id=\"defaultHttpEndpoint\" host=\"*\" /></server>" > /config/configDropins/defaults/open-default-port.xml \
-    && /opt/ol/wlp/bin/server start && /opt/ol/wlp/bin/server stop && rm -rf /output/resources/security/ /logs/*
+    && mkdir /config/configDropins/defaults
+
+# Add Open Liberty configuration
+ADD enable-liberty-features.xml /opt/ol/wlp/usr/servers/defaultServer/
+
+# Run the server the first time so it is setup correctly
+RUN /opt/ol/wlp/bin/server start \
+    && /opt/ol/wlp/bin/server stop \
+    && rm -rf /output/resources/security/ /logs/*
 
 RUN chmod +x /opt/ol/docker/docker-server
 
