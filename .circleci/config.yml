@@ -5,6 +5,7 @@ workflows:
   build:
     jobs:
       - backends
+      - frontend
 
 jobs:
   backends:
@@ -54,3 +55,18 @@ jobs:
               -Pdocker,circleci \
               -pl \!openliberty-java11-docker \
               -Ddockerfile.tag=1.0.${CIRCLE_BUILD_NUM}
+  frontend:
+    docker:
+      - image: circleci/node:10.15.0-stretch
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Login to Azure Container Registry
+          command: |
+            docker login futbolin.azurecr.io -u $AZ_SP_ID -p $AZ_SP_PASSWORD
+      - run:
+          name: Build container
+          command: |
+            pushd frontend
+            ./build-container.sh $CIRCLE_BUILD_NUM

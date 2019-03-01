@@ -18,7 +18,6 @@
         <module>common</module>
         <module>beer-api</module>
         <module>brewery-api</module>
-        <module>frontend</module>
     </modules>
 
     <build>
