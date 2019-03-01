@@ -4,10 +4,10 @@ workflows:
   version: 2
   build:
     jobs:
-      - build
+      - backends
 
 jobs:
-  build:
+  backends:
     docker:
       - image: circleci/openjdk:11-jdk-sid
     steps:
@@ -15,9 +15,6 @@ jobs:
       - setup_remote_docker
       - restore_cache:
           key: enterprise-beers-{{ .Branch }}-{{ checksum "pom.xml" }}
-#      - run:
-#          name: Prepare build
-#          command: mvn dependency:go-offline -DexcludeGroupIds=com.infosupport.enterprise-beers
       - save_cache:
           paths:
             - ~/.m2
