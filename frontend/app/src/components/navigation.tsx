@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import { Link } from 'react-router-dom';
+// As suggested at https://github.com/reactstrap/reactstrap/issues/336#issuecomment-281396777
+import { NavLink as RRNavLink } from 'react-router-dom';
 import {
     Button,
     Collapse,
@@ -9,21 +10,11 @@ import {
     Input,
     Nav,
     Navbar,
+    NavLink,
     NavbarBrand,
     NavbarToggler,
     NavItem,
 } from 'reactstrap';
-
-import DropdownItem from './dropdownitem';
-import NavLink from './navlink';
-
-//
-// Extensions of Reactstraps DropdownItem and NavLink elements that
-// enable using React Routers Link element as Tag.
-//
-export interface LinkProps {
-    to: string;
-}
 
 interface NavigationState {
     isOpen: boolean;
@@ -64,16 +55,12 @@ class Navigation extends React.Component<{}, NavigationState> {
 
         return (
             <NavItem key={ target }>
-                <NavLink tag={ Link } to={ target }>
+                <NavLink tag={ RRNavLink } to={ target } exact={ target === '/' }>
                     { icon } &nbsp; { title }
                 </NavLink>
             </NavItem>
         );
-}
-
-    private subMenuItem = (title: string, target: string) => (
-        <DropdownItem tag={ Link } to={ target }>{ title }</DropdownItem>
-    )
+    }
 
     private toggle = () => {
         this.setState((prev, props) => ({
