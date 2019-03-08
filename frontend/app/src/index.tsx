@@ -3,14 +3,14 @@ import * as ReactDOM from 'react-dom';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import App from './app';
 
 const routes = (
-    <BrowserRouter>
+    <HashRouter>
         <App />
-    </BrowserRouter>
+    </HashRouter>
 );
 
 ReactDOM.render(routes, document.getElementById('root') as HTMLElement);
