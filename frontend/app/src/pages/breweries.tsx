@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import {
     Card,
-    CardGroup,
+    CardDeck,
     CardHeader,
     CardText,
     CardBody,
@@ -34,9 +34,9 @@ const BreweryOrEmpty = ({ brewery }: BreweryProps) => (
 
 const BreweryRow = ({ breweries }: BreweryListProps) => (
     <>
-        <CardGroup>
+        <CardDeck>
             { breweries.map((brewery, idx) => <BreweryOrEmpty key={ idx } brewery={ brewery } /> )}
-        </CardGroup>
+        </CardDeck>
         <br />
     </>
 );
