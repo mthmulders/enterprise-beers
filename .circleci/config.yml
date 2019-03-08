@@ -69,7 +69,10 @@ jobs:
           command: yarn install
       - run:
           name: Run tests
-          command: JEST_JUNIT_OUTPUT=test-reports/junit.xml yarn run test:ci
+          command: |
+            pushd app
+            JEST_JUNIT_OUTPUT=test-reports/junit.xml yarn run test:ci
+            popd
       - run:
           name: Build container
           command: |
