@@ -66,7 +66,10 @@ jobs:
           command: docker login enterprisebeers.azurecr.io -u $AZ_SP_ID -p $AZ_SP_PASSWORD
       - run:
           name: Install dependencies
-          command: yarn install
+          command: |
+            pushd frontend/app
+            yarn install
+            popd
       - run:
           name: Run tests
           command: |
