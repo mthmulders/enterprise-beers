@@ -1,11 +1,14 @@
 {
-  "name": "app",
-  "version": "0.1.0",
-  "private": true,
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "dependencies": {
     "bootstrap": "4.3.1",
-    "react": "16.8.3",
-    "react-dom": "16.8.3",
+    "react": "16.8.4",
+    "react-dom": "16.8.4",
     "react-router-dom": "4.3.1",
     "reactstrap": "7.1.0"
   },
@@ -22,23 +25,20 @@
     "jest-enzyme": "7.0.1",
     "jest-junit": "6.3.0",
     "react-scripts": "2.1.5",
-    "react-test-renderer": "16.8.3",
     "typescript": "3.3.3333"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:ci": "react-scripts test --env=jsdom --reporters=default --reporters=jest-junit --coverage",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "name": "enterprise-beers",
+  "proxy": "https://enterprisebeers.westeurope.cloudapp.azure.com/",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "test:ci": "react-scripts test --env=jsdom --reporters=default --reporters=jest-junit --coverage",
+    "eject": "react-scripts eject"
+  },
+  "version": "0.1.0"
 }

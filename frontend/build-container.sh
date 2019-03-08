@@ -10,9 +10,7 @@ fi
 
 pushd app/
 
-npm install
-
-npm run build
+yarn build
 
 popd
 
