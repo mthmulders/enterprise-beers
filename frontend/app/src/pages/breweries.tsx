@@ -28,6 +28,19 @@ const Brewery = ({ brewery }: BreweryProps) => (
     </Card>
 );
 
+const BreweryOrEmpty = ({ brewery }: BreweryProps) => (
+    brewery ? <Brewery brewery={ brewery } /> : <Card />
+);
+
+const BreweryRow = ({ breweries }: BreweryListProps) => (
+    <>
+        <CardGroup>
+            { breweries.map((brewery, idx) => <BreweryOrEmpty key={ idx } brewery={ brewery } /> )}
+        </CardGroup>
+        <br />
+    </>
+);
+
 interface BreweryListProps {
     breweries: any[]
 }
@@ -36,39 +49,20 @@ const BreweryList = ({ breweries }: BreweryListProps) => {
     const chunked = chunk(breweries, 3, true);
     
     return (
-        <React.Fragment>
-        { chunked.map((chunk, idx) => (
-            <React.Fragment key={ idx }>
-                <CardGroup>
-                { chunk.map((brewery, idx) => (
-                    brewery ? <Brewery key={ `brewery-${idx}` } brewery={ brewery } /> : <Card key={ `brewery-${idx}` } />
-                ) ) }
-                </CardGroup>
-                <br />
-            </React.Fragment>
-        )) }
-        </React.Fragment>
-    );
-    
+        <>
+        { chunked.map((chunk, idx) => <BreweryRow key={ idx } breweries={ chunk } />) }
+        </>
+    );  
 };
 
+const initialState = {
+    breweries: [],
+    error: undefined,
+    loading: true
+}
+
 const Breweries = () => {
-    const [ { breweries, error, loading }, setState ] = useState({
-        breweries: [],
-        error: undefined,
-        loading: true
-    });
-
-    // console.info(`Rendering brewery page; stack: ${new Error().stack}`);
-
-    // const { breweries, loading } = state;
-
-    console.debug(`Found breweries: ${JSON.stringify(breweries)}`);
-
-    // const fetchBeers = async () => {
-    //     const breweries = await retrieveBreweries();
-    //     setState({ breweries, error, loading: false })
-    // };
+    const [ { breweries, error, loading }, setState ] = useState(initialState);
 
     useEffect(() => {
         retrieveBreweries()
