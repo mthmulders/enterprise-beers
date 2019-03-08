@@ -58,6 +58,23 @@ public class InMemoryBeerRepository implements BeerRepository {
                     .brewery(UUID.fromString("884343db-0a54-4add-b7ff-bb32dbad3731"))
                     .build()
     );
+    private static Collection<Beer> BOSTEELS_BEERS = Arrays.asList(
+            Beer.builder()
+                    .id(UUID.fromString("57b3e86d-6615-49a1-9332-28860d5bae6d"))
+                    .name("Tripel Karmeliet")
+                    .style(BELGIAN_TRIPEL)
+                    .abv(8.4)
+                    .ibu(16.0)
+                    .brewery(UUID.fromString("2c537ca9-6547-4a99-8fdd-1f28acf9b4f4"))
+                    .build(),
+            Beer.builder()
+                    .id(UUID.fromString("2083cad7-dd43-4144-9a78-9db925370eac"))
+                    .name("Pauwel Kwak")
+                    .style(BELGIAN_STRONG_GOLDEN_ALE)
+                    .abv(8.4)
+                    .brewery(UUID.fromString("2c537ca9-6547-4a99-8fdd-1f28acf9b4f4"))
+                    .build()
+    );
     private static Collection<Beer> MAREDSOUS_BEERS = Arrays.asList(
             Beer.builder()
                     .id(UUID.fromString("8993da3e-93ef-4029-98ab-e63c0f584ff2"))
@@ -86,6 +103,7 @@ public class InMemoryBeerRepository implements BeerRepository {
     private static final List<Beer> BEERS = new ArrayList<>();
     static {
         BEERS.addAll(ACHOUFFE_BEERS);
+        BEERS.addAll(BOSTEELS_BEERS);
         BEERS.addAll(MAREDSOUS_BEERS);
     }
 
