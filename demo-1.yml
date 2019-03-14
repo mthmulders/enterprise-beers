@@ -1,0 +1,21 @@
+version: '3.3'
+
+networks:
+  enterprise-beers:
+
+services:
+  beer-api:
+    image: enterprisebeers.azurecr.io/beer-api:1.0.73
+    container_name: beer-api
+    ports:
+      - 10001:9080
+    networks:
+      - enterprise-beers
+
+  brewery-api:
+    image: enterprisebeers.azurecr.io/brewery-api:1.0.68
+    container_name: brewery-api
+    ports:
+      - 10002:9080
+    networks:
+      - enterprise-beers
