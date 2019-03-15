@@ -15,7 +15,7 @@ import java.util.UUID;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
-@Path("/")
+@Path("/api")
 @Singleton
 public class BeerResource {
     @Inject

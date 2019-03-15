@@ -16,7 +16,7 @@ import com.infosupport.beers.services.BreweryService;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
-@Path("/brewery")
+@Path("/api/brewery")
 @Singleton
 public class BreweryResource {
     @Inject
