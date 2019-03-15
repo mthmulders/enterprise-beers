@@ -5,26 +5,20 @@ networks:
 
 services:
   beer-api:
-    image: enterprisebeers.azurecr.io/beer-api:1.0.73
+    image: enterprisebeers.azurecr.io/beer-api:1.0.75
     container_name: beer-api
-    ports:
-      - 10001:9080
     networks:
       - enterprise-beers
 
   brewery-api-1:
-    image: enterprisebeers.azurecr.io/brewery-api:1.0.68
+    image: enterprisebeers.azurecr.io/brewery-api:1.0.75
     container_name: brewery-api-1
-    ports:
-      - 10002:9080
     networks:
       - enterprise-beers
 
   brewery-api-2:
-    image: enterprisebeers.azurecr.io/brewery-api:1.0.68
+    image: enterprisebeers.azurecr.io/brewery-api:1.0.75
     container_name: brewery-api-2
-    ports:
-      - 10003:9080
     networks:
       - enterprise-beers
 
@@ -71,6 +65,10 @@ services:
       KONG_PG_USER: kong
       KONG_PG_PASSWORD: s3cr3t
       KONG_ADMIN_LISTEN: 0.0.0.0:8001
+      KONG_PROXY_ACCESS_LOG: /dev/stdout
+      KONG_ADMIN_ACCESS_LOG: /dev/stdout
+      KONG_PROXY_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_ERROR_LOG: /dev/stderr
     depends_on:
       - kong-db-migration
 
