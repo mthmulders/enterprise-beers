@@ -8,7 +8,7 @@ services:
     image: enterprisebeers.azurecr.io/beer-api:1.0.90
     container_name: beer-api
     volumes:
-      - ./demo-2-config.txt:/config/jvm.options
+      - ./demo-3-config.txt:/config/jvm.options
     networks:
       - enterprise-beers
 
@@ -16,7 +16,7 @@ services:
     image: enterprisebeers.azurecr.io/brewery-api:1.0.90
     container_name: brewery-api-1
     volumes:
-      - ./demo-2-config.txt:/config/jvm.options
+      - ./demo-3-config.txt:/config/jvm.options
     networks:
       - enterprise-beers
 
@@ -24,7 +24,7 @@ services:
     image: enterprisebeers.azurecr.io/brewery-api:1.0.90
     container_name: brewery-api-2
     volumes:
-      - ./demo-2-config.txt:/config/jvm.options
+      - ./demo-3-config.txt:/config/jvm.options
     networks:
       - enterprise-beers
 

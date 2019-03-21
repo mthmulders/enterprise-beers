@@ -1,0 +1,1 @@
+-Dcom.infosupport.beers.security.strategy=KONG
