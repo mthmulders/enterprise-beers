@@ -17,7 +17,7 @@ public class AuthenticationServiceFactoryTest {
     }
 
     @Test
-    public void whenSystemPropertyAPI_KEY_shouldInvokeApiKeyAuthenticationService() {
+    public void whenSystemPropertyAPI_KEY_shouldReturnApiKeyAuthenticationService() {
         // Arrange
         System.setProperty(PROP_NAME, "API_KEY");
 
@@ -29,7 +29,7 @@ public class AuthenticationServiceFactoryTest {
     }
 
     @Test
-    public void whenSystemPropertyOPEN_shouldInvokeOpenAuthenticationService() {
+    public void whenSystemPropertyOPEN_shouldReturnOpenAuthenticationService() {
         // Arrange
         System.setProperty(PROP_NAME, "NONE");
 
@@ -41,7 +41,19 @@ public class AuthenticationServiceFactoryTest {
     }
 
     @Test
-    public void whenSystemPropertyEmpty_shouldInvokeOpenAuthenticationService() {
+    public void whenSystemPropertyKONG_shouldReturnKongAuthenticationService() {
+        // Arrange
+        System.setProperty(PROP_NAME, "KONG");
+
+        // Act
+        var result = sut.authenticationService();
+
+        // Assert
+        assertThat(result, is(instanceOf(KongAuthenticationService.class)));
+    }
+
+    @Test
+    public void whenSystemPropertyEmpty_shouldReturnOpenAuthenticationService() {
         // Arrange
 
         // Act

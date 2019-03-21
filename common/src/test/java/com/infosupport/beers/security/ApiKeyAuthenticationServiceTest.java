@@ -11,6 +11,7 @@ import static com.infosupport.beers.security.ApiKeyAuthenticationService.ALLOWED
 import static com.infosupport.beers.security.ApiKeyAuthenticationService.CLIENT_NAME;
 import static com.infosupport.beers.security.ApiKeyAuthenticationService.HEADER_NAME;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.collection.IsEmptyCollection.empty;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
@@ -72,5 +73,6 @@ public class ApiKeyAuthenticationServiceTest {
 
         // Assert
         assertThat(result, hasItems("api-client"));
+        assertThat(result, hasSize(1));
     }
 }
