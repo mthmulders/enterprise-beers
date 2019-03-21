@@ -2,6 +2,7 @@
 <server description="default server">
     <!-- Enable features -->
     <featureManager>
+        <feature>appSecurity-3.0</feature>
         <feature>cdi-2.0</feature>
         <feature>jaxrs-2.1</feature>
         <feature>jsonb-1.0</feature>
