@@ -1,18 +1,19 @@
 package com.infosupport.beers.common;
 
-import lombok.extern.java.Log;
-
-import javax.annotation.PostConstruct;
-import javax.ejb.Stateless;
-import javax.inject.Inject;
-import javax.servlet.ServletContext;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Optional;
 
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import javax.servlet.ServletContext;
+
+import lombok.extern.java.Log;
+
 import static java.util.logging.Level.SEVERE;
 
-@Stateless
+@ApplicationScoped
 @Log
 public class SystemInformationService {
     @Inject

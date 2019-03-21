@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 
 import lombok.NonNull;
 
-@Stateless
+@ApplicationScoped
 public class InMemoryBreweryRepository implements BreweryRepository {
     private static final List<Brewery> BREWERIES = Arrays.asList(
             new Brewery(UUID.fromString("884343db-0a54-4add-b7ff-bb32dbad3731"), "Brasserie d'Achouffe", "Achouffe", "BE"),

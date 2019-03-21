@@ -72,5 +72,4 @@ public class BeerResourceTest {
         sut.getBeerById(UUID.fromString("2b174239-67c9-46a4-b149-8a8a0f0e9cd1"));
     }
 
-
 }
