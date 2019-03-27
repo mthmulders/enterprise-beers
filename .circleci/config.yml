@@ -43,17 +43,10 @@ jobs:
           name: Login to Azure Container Registry
           command: docker login enterprisebeers.azurecr.io -u $AZ_SP_ID -p $AZ_SP_PASSWORD
       - run:
-          name: Push OpenLiberty container
+          name: Push containers
           command: |
             mvn clean package \
               -Pdocker,circleci \
-              -pl openliberty-java11-docker
-      - run:
-          name: Push application containers
-          command: |
-            mvn clean package \
-              -Pdocker,circleci \
-              -pl \!openliberty-java11-docker \
               -Ddockerfile.tag=1.0.${CIRCLE_BUILD_NUM}
   frontend:
     docker:

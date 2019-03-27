@@ -1,6 +1,6 @@
-FROM enterprisebeers.azurecr.io/openliberty-java11:javaee8-19.0.0.1
+FROM openliberty/open-liberty:javaee8-java11-openj9
 
 ARG WAR_FILE
 
-COPY src/main/docker/app.xml /config/configDropins/defaults/app.xml
+COPY src/main/docker/server.xml /opt/ol/wlp/usr/servers/defaultServer/server.xml
 COPY target/${WAR_FILE} /tmp/app.war

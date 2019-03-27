@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<server description="default server">
+<server description="defaultServer">
     <!-- Enable features -->
     <featureManager>
         <feature>appSecurity-3.0</feature>
@@ -13,4 +13,6 @@
                   host="*"
                   httpPort="9080"
                   httpsPort="9443" />
+
+    <application location="/tmp/app.war" id="app" name="app" context-root="/" />
 </server>
