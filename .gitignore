@@ -2,3 +2,4 @@
 *.iml
 target/
 demo2-pgdata/
+demo3-pgdata/
