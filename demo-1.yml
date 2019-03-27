@@ -1,7 +1,7 @@
 version: '3.3'
 
 networks:
-  enterprise-beers:
+  demo01:
 
 services:
   beer-api:
@@ -10,7 +10,7 @@ services:
     ports:
       - 10001:9080
     networks:
-      - enterprise-beers
+      - demo01
 
   brewery-api:
     image: enterprisebeers.azurecr.io/brewery-api:1.0.68
@@ -18,4 +18,4 @@ services:
     ports:
       - 10002:9080
     networks:
-      - enterprise-beers
+      - demo01

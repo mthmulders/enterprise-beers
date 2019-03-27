@@ -1,7 +1,7 @@
 version: '3.3'
 
 networks:
-  enterprise-beers:
+  demo03:
 
 services:
   beer-api:
@@ -10,7 +10,7 @@ services:
     volumes:
       - ./demo-3-config.txt:/config/jvm.options
     networks:
-      - enterprise-beers
+      - demo03
 
   brewery-api-1:
     image: enterprisebeers.azurecr.io/brewery-api:1.0.95
@@ -18,7 +18,7 @@ services:
     volumes:
       - ./demo-3-config.txt:/config/jvm.options
     networks:
-      - enterprise-beers
+      - demo03
 
   brewery-api-2:
     image: enterprisebeers.azurecr.io/brewery-api:1.0.95
@@ -26,7 +26,7 @@ services:
     volumes:
       - ./demo-3-config.txt:/config/jvm.options
     networks:
-      - enterprise-beers
+      - demo03
 
   postgresql:
     image: postgres:11.2-alpine
@@ -34,7 +34,7 @@ services:
     ports:
       - 5432:5432
     networks:
-      - enterprise-beers
+      - demo03
     volumes:
       - ./demo2-pgdata:/var/lib/postgresql/data
     environment:
@@ -46,7 +46,7 @@ services:
     image: kong:1.0.3-alpine
     container_name: kong-db-migration
     networks:
-      - enterprise-beers
+      - demo03
     environment:
       KONG_DATABASE: postgres
       KONG_PG_HOST: postgresql
@@ -63,7 +63,7 @@ services:
       - 8000:8000
       - 8001:8001
     networks:
-      - enterprise-beers
+      - demo03
     restart: always
     environment:
       KONG_DATABASE: postgres
