@@ -12,11 +12,10 @@ import lombok.extern.java.Log;
 @Provider
 public class DiagnosticsFilter implements ContainerResponseFilter {
     @Inject
-    private SystemInformationService informationService;
+    SystemInformationService informationService;
 
     @Override
     public void filter(final ContainerRequestContext requestContext, final ContainerResponseContext responseContext) {
-        responseContext.getHeaders().putSingle("X-Application-Server", informationService.getApplicationServer());
         responseContext.getHeaders().putSingle("X-Application-Server", informationService.getApplicationServer());
         responseContext.getHeaders().putSingle("X-Java-Runtime", informationService.getJavaRuntime());
         responseContext.getHeaders().putSingle("X-Operating-System", informationService.getOperatingSystem());
