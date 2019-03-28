@@ -36,25 +36,11 @@ services:
     networks:
       - demo03
     volumes:
-      - ./demo3-pgdata:/var/lib/postgresql/data
+      - ./pg-data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: kong
       POSTGRES_USER: kong
       POSTGRES_PASSWORD: s3cr3t
-
-  kong-db-migration:
-    image: kong:1.0.3-alpine
-    container_name: kong-db-migration
-    networks:
-      - demo03
-    environment:
-      KONG_DATABASE: postgres
-      KONG_PG_HOST: postgresql
-      KONG_PG_USER: kong
-      KONG_PG_PASSWORD: s3cr3t
-    command: /bin/sh -c "kong migrations bootstrap && kong migrations --v up"
-    depends_on:
-      - postgresql
 
   kong:
     image: kong:1.0.3-alpine

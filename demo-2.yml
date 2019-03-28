@@ -36,7 +36,7 @@ services:
     networks:
       - demo02
     volumes:
-      - ./demo2-pgdata:/var/lib/postgresql/data
+      - ./pg-data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: kong
       POSTGRES_USER: kong

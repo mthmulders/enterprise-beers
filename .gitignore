@@ -1,5 +1,4 @@
 .idea/
 *.iml
 target/
-demo2-pgdata/
-demo3-pgdata/
+pg-data/
