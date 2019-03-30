@@ -3,6 +3,7 @@ package com.infosupport.beers.resources;
 import com.infosupport.beers.model.Beer;
 import com.infosupport.beers.services.BeerService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.ws.rs.GET;
@@ -17,6 +18,7 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @Path("/api")
 @Singleton
+@RolesAllowed("api-client")
 public class BeerResource {
     @Inject
     BeerService service;
