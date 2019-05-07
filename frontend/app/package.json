@@ -22,7 +22,7 @@
     "@types/reactstrap": "8.0.1",
     "enzyme": "3.9.0",
     "enzyme-adapter-react-16": "1.12.1",
-    "jest-enzyme": "7.0.1",
+    "jest-enzyme": "7.0.2",
     "jest-junit": "6.4.0",
     "react-scripts": "2.1.5",
     "typescript": "3.3.3333"
