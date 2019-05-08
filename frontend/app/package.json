@@ -24,7 +24,7 @@
     "enzyme-adapter-react-16": "1.12.1",
     "jest-enzyme": "7.0.1",
     "jest-junit": "6.4.0",
-    "react-scripts": "3.0.0",
+    "react-scripts": "3.0.1",
     "typescript": "3.3.3333"
   },
   "eslintConfig": {
