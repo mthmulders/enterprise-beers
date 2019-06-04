@@ -1,4 +1,4 @@
-FROM open-liberty/open-liberty:javaee8-java11
+FROM open-liberty:javaee8-java11
 
 ARG WAR_FILE
 
