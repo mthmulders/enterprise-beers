@@ -21,7 +21,7 @@
     "@types/react-router-dom": "4.3.3",
     "@types/reactstrap": "8.0.1",
     "enzyme": "3.10.0",
-    "enzyme-adapter-react-16": "1.13.2",
+    "enzyme-adapter-react-16": "1.14.0",
     "jest-enzyme": "7.0.2",
     "jest-junit": "6.4.0",
     "react-scripts": "3.0.1",
