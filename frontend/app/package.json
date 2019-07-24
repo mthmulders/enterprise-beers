@@ -23,7 +23,7 @@
     "enzyme": "3.10.0",
     "enzyme-adapter-react-16": "1.14.0",
     "jest-enzyme": "7.0.2",
-    "jest-junit": "6.4.0",
+    "jest-junit": "7.0.0",
     "react-scripts": "3.0.1",
     "typescript": "3.5.3"
   },
