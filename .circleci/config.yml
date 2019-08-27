@@ -67,7 +67,7 @@ jobs:
           name: Run tests
           command: |
             pushd frontend/app
-            JEST_JUNIT_OUTPUT=test-reports/junit.xml yarn run test:ci
+            JEST_JUNIT_OUTPUT_DIR=test-reports/ yarn run test:ci
             popd
       - run:
           name: Build container
