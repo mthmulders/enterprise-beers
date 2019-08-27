@@ -76,7 +76,7 @@ jobs:
             ./build-container.sh $CIRCLE_BUILD_NUM
             popd
       - store_test_results:
-          path: "./test-reports/"
+          path: "./frontend/app/test-reports/"
       - store_artifacts:
-          destination: "test-reports/unit-test"
+          destination: "frontend/app/test-reports/unit-test"
           path: "./test-reports/"
