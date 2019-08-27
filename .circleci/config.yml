@@ -67,7 +67,7 @@ jobs:
           name: Run tests
           command: |
             pushd frontend/app
-            JEST_JUNIT_OUTPUT=test-reports/junit.xml yarn run test:ci
+            JEST_JUNIT_OUTPUT_DIR=test-reports/ yarn run test:ci
             popd
       - run:
           name: Build container
@@ -76,7 +76,7 @@ jobs:
             ./build-container.sh $CIRCLE_BUILD_NUM
             popd
       - store_test_results:
-          path: "./test-reports/"
+          path: "./frontend/app/test-reports/"
       - store_artifacts:
-          destination: "test-reports/unit-test"
+          destination: "frontend/app/test-reports/unit-test"
           path: "./test-reports/"
