@@ -10,7 +10,7 @@ fi
 
 pushd app/
 
-yarn build
+yarn build || exit "Build failed"
 
 popd
 
