@@ -55,25 +55,33 @@ const BreweryList = ({ breweries }: BreweryListProps) => {
     );  
 };
 
-const initialState = {
-    breweries: [],
+interface State {
+    breweries?: any[],
+    error?: Error,
+    loading: boolean,
+}
+
+const initialState: State = {
+    breweries: undefined,
     error: undefined,
-    loading: true
+    loading: false
 }
 
 const Breweries = () => {
-    const [ { breweries, error, loading }, setState ] = useState(initialState);
-
+    const [ { breweries, error, loading }, setState ] = useState<State>(initialState);
+    
     useEffect(() => {
+        setState({ loading: true });
         retrieveBreweries()
-            .then((breweries) => setState({ breweries, error, loading: false }))
-            .catch((error) => setState({ breweries, error, loading: false }))
+            .then((breweries) => setState({ breweries, loading: false }))
+            .catch((error) => setState({ error, loading: false }))
     }, [ ]);
 
     return (
         <>
             { loading && <div>Loading...</div> }
-            { !loading && <BreweryList breweries={ breweries } /> }
+            { error && <div>An error occured: { error.message }</div> }
+            { breweries && <BreweryList breweries={ breweries } /> }
         </>
     );
 };
