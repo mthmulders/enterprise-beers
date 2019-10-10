@@ -25,7 +25,7 @@
     "jest-enzyme": "7.1.1",
     "jest-junit": "8.0.0",
     "react-scripts": "3.2.0",
-    "typescript": "3.6.3"
+    "typescript": "3.6.4"
   },
   "eslintConfig": {
     "extends": "react-app"
