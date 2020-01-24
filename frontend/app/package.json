@@ -15,7 +15,7 @@
   "devDependencies": {
     "@types/enzyme": "3.10.4",
     "@types/enzyme-adapter-react-16": "1.0.5",
-    "@types/jest": "24.9.0",
+    "@types/jest": "24.9.1",
     "@types/react-dom": "16.9.5",
     "@types/react-router": "5.1.4",
     "@types/react-router-dom": "5.1.3",
